@@ -1,0 +1,39 @@
+
+   INSERT INTO oauth_client_details (
+	id,
+	client_id, 
+	client_secret, 
+	scope, 
+	authorized_grant_types,
+	web_server_redirect_uri, 
+	authorities, 
+	access_token_validity,
+	refresh_token_validity,resource_ids, additional_information, autoapprove
+	 )VALUES(
+	'1','public', 
+	'{bcrypt}$2y$12$s/vsquzVWfiEf/CmWPrHn.8U0febzYnF6pmvhPljJU4MVWwXgdiF.', 
+	'foo,read,write',
+	'password,authorization_code,refresh_token,client_credentials', 
+	'http://localhost:8082/login,http://localhost:8083/login,http://localhost:8084/login', 
+	'ROLE_CLIENT', 
+	36000, 
+	36000,
+	'morasalat-service-resource,mq-service-resource,fm-service-resource,mail-service-resource,test-resource',null,'false'
+	); 
+
+   insert into role(id,name,client_id) values ('1','user','1');
+   insert into role(id,name,client_id) values ('2','admin','1');
+   insert into role(id,name,client_id) values ('3','Manager','1');
+   
+
+INSERT INTO USERS (id,user_name,email,type,is_credentials_non_expired,is_account_non_expired,is_account_non_blocked,is_enabled,pass ,role_id) VALUES (
+   1, 'user','user@core.com','user',true,true,true,true,'{bcrypt}$2y$12$WBcP53NiC20Gyksn2nN5SOttJWN.kdHQz71Vt7pkSQXVbcqx/trVK','1');
+      
+INSERT INTO USERS (id,user_name,email,type,is_credentials_non_expired,is_account_non_expired,is_account_non_blocked,is_enabled,pass ,role_id) VALUES (
+   2, 'admin','admin@core.com','user',true,true,true,true,'{bcrypt}$2y$12$WBcP53NiC20Gyksn2nN5SOttJWN.kdHQz71Vt7pkSQXVbcqx/trVK','2');
+
+INSERT INTO USERS (id,user_name,email,type,is_credentials_non_expired,is_account_non_expired,is_account_non_blocked,is_enabled,pass ,role_id) VALUES (
+   3, 'manager','manager@core.com','user',true,true,true,true,'{bcrypt}$2y$12$WBcP53NiC20Gyksn2nN5SOttJWN.kdHQz71Vt7pkSQXVbcqx/trVK','3');
+   
+
+
